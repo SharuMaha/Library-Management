@@ -15,7 +15,7 @@ public class Main {
 
             Auteurs a = new Auteurs(resultat);
 
-            System.out.println(Arrays.deepToString(liste));
+            System.out.println(Arrays.toString(a.auteur));
             conn.connect_end();
         } catch (Exception e) {
             System.out.println(e);
