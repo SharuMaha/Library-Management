@@ -1,3 +1,5 @@
+package Lib.manag;
+
 import java.sql.*;
 import java.util.Arrays;
 
@@ -11,11 +13,12 @@ public class Main {
 
             ResultSet resultat = statement.executeQuery("SELECT * FROM Auteurs");
             int i = 0;
-            Object[][] liste = new Object[10][3];
-
-            Auteurs a = new Auteurs(resultat);
-
-            System.out.println(Arrays.toString(a.auteur));
+            Object[] auteurs = new Object[2];
+            while(resultat.next()) {
+                Auteurs a = new Auteurs(resultat);
+                auteurs[i] = Arrays.toString(a.auteur);
+                i++;
+            }
             conn.connect_end();
         } catch (Exception e) {
             System.out.println(e);

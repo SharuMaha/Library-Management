@@ -1,3 +1,5 @@
+package Lib.manag;
+
 import java.sql.*;
 
 public class Auteurs {
