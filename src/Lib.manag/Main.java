@@ -1,6 +1,7 @@
 package Lib.manag;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
@@ -12,14 +13,20 @@ public class Main {
             statement = conn.con.createStatement();
 
             ResultSet resultat = statement.executeQuery("SELECT * FROM Auteurs");
+            ArrayList<Auteur> auteurs = new ArrayList<Auteur>();
             int i = 0;
-            Object[] auteurs = new Object[2];
+            ArrayList<Object> auteursEnString = new ArrayList<Object>();
             while(resultat.next()) {
-                Auteurs a = new Auteurs(resultat);
-                auteurs[i] = Arrays.toString(a.auteur);
+                Auteur a = new Auteur(resultat);
+                auteurs.add(a);
+                auteursEnString.add(a.instanceTotale);
                 i++;
             }
+
+
+
             conn.connect_end();
+            System.out.println(auteurs);
         } catch (Exception e) {
             System.out.println(e);
         }
